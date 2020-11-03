@@ -29,13 +29,6 @@ bookBtn.addEventListener('click', function (e) {
 })
 
 
-function removeBook() {
-
-  deletBtn.addEventListener('click', (e)=>{
-    console.log("Hello")
-  })
-}
-
 const books = document.querySelector('.books')
 
 function displayBooks() {
@@ -64,25 +57,36 @@ function displayBooks() {
     read.textContent = readStatus
 
     read.addEventListener ('click', (e)=>{
-      if (readStatus == 'unread'){
-        read.textContent = 'read'
-      }else if (readStatus == 'read'){
+      if (readStatus == 'read'){
         read.textContent = 'unread'
+      }else {
+        read.textContent = 'read'
       }
     })
     div.appendChild(read)
 
+    listItem.setAttribute('book-index', i)
+
     let deleteBtn = document.createElement('button')
     deleteBtn.setAttribute('class', 'delete-btn')
     deleteBtn.textContent = 'Delete Book'
+    deleteBtn.onclick = function (e) {
+      e.preventDefault()
+      let idx = deleteBtn.parentNode.parentNode.getAttribute('book-index')
+      myLibrary.splice(idx, 1)
+      console.log('item deleted')
+      displayBooks()
+    }
     div.appendChild(deleteBtn)
 
-    listItem.setAttribute('data', i)
+
 
     listItem.appendChild(div)
     books.appendChild(listItem)
   }
 }
+
+
 
 addBookToLibrary('Tolkien', 'LOTR', 255, false)
 addBookToLibrary('Hamil', 'Fast Book', 15, true)
