@@ -32,7 +32,7 @@ function removeBook() {
 
 const books = document.querySelector('.books')
 
-function displayBooks() {
+function displayBooks() { 
   // loops through array and displays books
   for (let i = 0; i < myLibrary.length; i++) {
     let listItem = document.createElement('li')
@@ -62,3 +62,11 @@ addBookToLibrary('Hamil', 'Fast Book', 15, true)
 
 console.log('Book display:')
 displayBooks()
+
+form = document.querySelector('.form');
+toggle = document.querySelector('.toggle')
+
+
+toggle.addEventListener('click', (e)=> {
+  form.classList.toggle('no-display')
+})

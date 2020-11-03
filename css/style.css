@@ -3,3 +3,11 @@
   display: -ms-flexbox;
   display: flex;
 }
+
+.no-display {
+  display: none;
+}
+
+.display {
+  display:  block;
+}
