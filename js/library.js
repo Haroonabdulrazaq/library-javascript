@@ -58,7 +58,7 @@ function displayBooks() {
     let read = document.createElement('input')
     read.setAttribute('type', 'checkbox')
     let readStatus = myLibrary[i].read
-    read.setAttribute('checked', readStatus)
+    read.checked = readStatus
     div.appendChild(read)
 
     listItem.appendChild(div)
@@ -70,9 +70,6 @@ addBookToLibrary('Tolkien', 'LOTR', 255, false)
 addBookToLibrary('Hamil', 'Fast Book', 15, true)
 
 displayBooks()
-
-console.log('Book display:')
-
 
 form = document.querySelector('.form');
 toggleBtn = document.querySelector('.toggle-form')
