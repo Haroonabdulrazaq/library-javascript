@@ -11,7 +11,28 @@
 
 <body>
   <h2>Hello Library</h2>
+  <!-- toggle display add book form -->
+  <button>Display Form</button>
+  <!-- Add Book Form -->
+  <form action="#">
+    <input type="text" name="author">
+    <input type="text" name="title">
+    <input type="text" name="num_pages">
+    <input type="checkbox" value="checked">
+    <input type="submit" value="Add Book">
+  </form>
+  <!-- placeholder for book list -->
+  <ul>
+    <li>
+      <div class='card book'>
+        <h4>Author</h4>
+        <h2>Title</h2>
+        <p>Number of Pages: 250</p>
+        <p>Read Status</p>
+      </div>
+    </li><!-- requires button to remove this book -->
+  </ul>
+  <script src='js/library.js'></script>
 </body>
-<script src='js/library.js'></script>
 
 </html>
