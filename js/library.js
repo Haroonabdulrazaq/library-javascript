@@ -28,11 +28,6 @@ bookBtn.addEventListener('click', function (e) {
   console.log(myLibrary)
 })
 
-
-function removeBook() {
-
-}
-
 const books = document.querySelector('.books')
 
 function displayBooks() {
@@ -61,10 +56,28 @@ function displayBooks() {
     read.checked = readStatus
     div.appendChild(read)
 
+    listItem.setAttribute('book-index', i)
+
+    let deleteBtn = document.createElement('button')
+    deleteBtn.setAttribute('class', 'delete-btn')
+    deleteBtn.textContent = 'Delete Book'
+    deleteBtn.onclick = function (e) {
+      e.preventDefault()
+      let idx = deleteBtn.parentNode.parentNode.getAttribute('book-index')
+      myLibrary.splice(idx, 1)
+      console.log('item deleted')
+      displayBooks()
+    }
+    div.appendChild(deleteBtn)
+
+
+
     listItem.appendChild(div)
     books.appendChild(listItem)
   }
 }
+
+
 
 addBookToLibrary('Tolkien', 'LOTR', 255, false)
 addBookToLibrary('Hamil', 'Fast Book', 15, true)
