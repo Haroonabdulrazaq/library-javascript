@@ -31,6 +31,9 @@ bookBtn.addEventListener('click', function (e) {
 
 function removeBook() {
 
+  deletBtn.addEventListener('click', (e)=>{
+    console.log("Hello")
+  })
 }
 
 const books = document.querySelector('.books')
@@ -55,11 +58,26 @@ function displayBooks() {
     pages.textContent = 'No. Pages: ' + myLibrary[i].num_pages
     div.appendChild(pages)
 
-    let read = document.createElement('input')
-    read.setAttribute('type', 'checkbox')
-    let readStatus = myLibrary[i].read
-    read.checked = readStatus
+    let read = document.createElement('button')
+    read.setAttribute('class', 'status-btn')
+    let readStatus = myLibrary[i].read ? 'read' : 'unread'
+    read.textContent = readStatus
+
+    read.addEventListener ('click', (e)=>{
+      if (readStatus == 'unread'){
+        read.textContent = 'read'
+      }else if (readStatus == 'read'){
+        read.textContent = 'unread'
+      }
+    })
     div.appendChild(read)
+
+    let deleteBtn = document.createElement('button')
+    deleteBtn.setAttribute('class', 'delete-btn')
+    deleteBtn.textContent = 'Delete Book'
+    div.appendChild(deleteBtn)
+
+    listItem.setAttribute('data', i)
 
     listItem.appendChild(div)
     books.appendChild(listItem)
@@ -78,4 +96,3 @@ toggleBtn = document.querySelector('.toggle-form')
 toggleBtn.addEventListener('click', (e) => {
   form.classList.toggle('no-display')
 })
-
