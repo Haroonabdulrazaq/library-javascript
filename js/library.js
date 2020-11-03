@@ -1,6 +1,6 @@
 let myLibrary = []
 
-function Book(author, title, num_pages, read ) {
+function Book(author, title, num_pages, read) {
   this.author = author
   this.title = title
   this.num_pages = num_pages
@@ -21,7 +21,7 @@ bookBtn.addEventListener('click', function (e) {
   const bookTitle = document.querySelector('.form-title').value
   const bookPages = document.querySelector('.form-num-pages').value
   const bookRead = document.querySelector('.form-read').checked
-
+  console.log(bookRead)
   // add read here
   addBookToLibrary(bookAuthor, bookTitle, bookPages, bookRead)
   console.log('added book')
@@ -35,8 +35,9 @@ function removeBook() {
 
 const books = document.querySelector('.books')
 
-function displayBooks() { 
+function displayBooks() {
   // loops through array and displays books
+  books.textContent = ''
   for (let i = 0; i < myLibrary.length; i++) {
     let listItem = document.createElement('li')
 
@@ -56,12 +57,11 @@ function displayBooks() {
 
     let read = document.createElement('input')
     read.setAttribute('type', 'checkbox')
-    let readStatus = myLibrary[i].read ? 'checked' : 'unchecked'
-    read.setAttribute('value', readStatus)
+    let readStatus = myLibrary[i].read
+    read.setAttribute('checked', readStatus)
     div.appendChild(read)
 
     listItem.appendChild(div)
-
     books.appendChild(listItem)
   }
 }
@@ -69,14 +69,16 @@ function displayBooks() {
 addBookToLibrary('Tolkien', 'LOTR', 255, false)
 addBookToLibrary('Hamil', 'Fast Book', 15, true)
 
-console.log('Book display:')
 displayBooks()
 
+console.log('Book display:')
+
+
 form = document.querySelector('.form');
-toggle = document.querySelector('.toggle')
+toggleBtn = document.querySelector('.toggle-form')
 
 
-toggle.addEventListener('click', (e)=> {
+toggleBtn.addEventListener('click', (e) => {
   form.classList.toggle('no-display')
 })
 
