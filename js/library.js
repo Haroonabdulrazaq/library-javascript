@@ -1,6 +1,6 @@
 let myLibrary = []
 
-function Book(author, title, num_pages, read = false) {
+function Book(author, title, num_pages, read ) {
   this.author = author
   this.title = title
   this.num_pages = num_pages
@@ -9,9 +9,10 @@ function Book(author, title, num_pages, read = false) {
 
 const bookBtn = document.querySelector('.add-book')
 
-function addBookToLibrary(author, title, num_pages) {
-  let newBook = new Book(author, title, num_pages)
+function addBookToLibrary(author, title, num_pages, read) {
+  let newBook = new Book(author, title, num_pages, read)
   myLibrary.push(newBook)
+  displayBooks()
 }
 
 bookBtn.addEventListener('click', function (e) {
@@ -19,8 +20,10 @@ bookBtn.addEventListener('click', function (e) {
   const bookAuthor = document.querySelector('.form-author').value
   const bookTitle = document.querySelector('.form-title').value
   const bookPages = document.querySelector('.form-num-pages').value
+  const bookRead = document.querySelector('.form-read').checked
+
   // add read here
-  addBookToLibrary(bookAuthor, bookTitle, bookPages)
+  addBookToLibrary(bookAuthor, bookTitle, bookPages, bookRead)
   console.log('added book')
   console.log(myLibrary)
 })
@@ -51,6 +54,12 @@ function displayBooks() {
     pages.textContent = 'No. Pages: ' + myLibrary[i].num_pages
     div.appendChild(pages)
 
+    let read = document.createElement('input')
+    read.setAttribute('type', 'checkbox')
+    let readStatus = myLibrary[i].read ? 'checked' : 'unchecked'
+    read.setAttribute('value', readStatus)
+    div.appendChild(read)
+
     listItem.appendChild(div)
 
     books.appendChild(listItem)
@@ -70,3 +79,4 @@ toggle = document.querySelector('.toggle')
 toggle.addEventListener('click', (e)=> {
   form.classList.toggle('no-display')
 })
+
