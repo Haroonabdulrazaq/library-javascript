@@ -30,6 +30,35 @@ function removeBook() {
 
 }
 
+const books = document.querySelector('.books')
+
 function displayBooks() {
   // loops through array and displays books
+  for (let i = 0; i < myLibrary.length; i++) {
+    let listItem = document.createElement('li')
+
+    let div = document.createElement('div')
+
+    let title = document.createElement('h2')
+    title.textContent = 'Book Title: ' + myLibrary[i].title
+    div.appendChild(title)
+
+    let author = document.createElement('h3')
+    author.textContent = 'Book Author: ' + myLibrary[i].author
+    div.appendChild(author)
+
+    let pages = document.createElement('p')
+    pages.textContent = 'No. Pages: ' + myLibrary[i].num_pages
+    div.appendChild(pages)
+
+    listItem.appendChild(div)
+
+    books.appendChild(listItem)
+  }
 }
+
+addBookToLibrary('Tolkien', 'LOTR', 255, false)
+addBookToLibrary('Hamil', 'Fast Book', 15, true)
+
+console.log('Book display:')
+displayBooks()
