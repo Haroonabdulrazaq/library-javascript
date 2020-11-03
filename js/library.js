@@ -1,4 +1,4 @@
-let myLibray = []
+let myLibrary = []
 
 function Book(author, title, num_pages, read = false) {
   this.author = author
@@ -7,12 +7,24 @@ function Book(author, title, num_pages, read = false) {
   this.read = read
 }
 
-addBookToLibrary = new Book()
+const bookBtn = document.querySelector('.add-book')
 
 function addBookToLibrary(author, title, num_pages) {
   let newBook = new Book(author, title, num_pages)
-  myLibray.push(newBook)
+  myLibrary.push(newBook)
 }
+
+bookBtn.addEventListener('click', function (e) {
+  e.preventDefault()
+  const bookAuthor = document.querySelector('.form-author').value
+  const bookTitle = document.querySelector('.form-title').value
+  const bookPages = document.querySelector('.form-num-pages').value
+  // add read here
+  addBookToLibrary(bookAuthor, bookTitle, bookPages)
+  console.log('added book')
+  console.log(myLibrary)
+})
+
 
 function removeBook() {
 

@@ -10,17 +10,23 @@
 </head>
 
 <body>
-  <h2>Hello Library</h2>
+  <h2>JS Library</h2>
   <!-- toggle display add book form -->
   <button>Display Form</button>
   <!-- Add Book Form -->
   <form action="#">
-    <input type="text" name="author">
-    <input type="text" name="title">
-    <input type="text" name="num_pages">
-    <input type="checkbox" value="checked">
-    <input type="submit" value="Add Book">
+    <label for="author">Author</label>
+    <input type="text" name="author" class='form-author'>
+    <label for="title">Title</label>
+    <input type="text" name="title" class='form-title'>
+    <label for="num_pages">Pages</label>
+    <input type="text" name="num_pages" class='form-num-pages'>
+    <label for="read"> Read</label>
+    <input type="checkbox" name='read' value="checked">
+    <input type="submit" value="Add Book" class='add-book'>
   </form>
+  <br>
+  <br>
   <!-- placeholder for book list -->
   <ul>
     <li>
