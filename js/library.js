@@ -1,109 +1,102 @@
-let myLibrary = []
+const myLibrary = [];
 
-function Book(author, title, num_pages, read) {
-  this.author = author
-  this.title = title
-  this.num_pages = num_pages
-  this.read = read
+function Book(author, title, numPages, read) {
+  this.author = author;
+  this.title = title;
+  this.numPages = numPages;
+  this.read = read;
 }
 
-const bookBtn = document.querySelector('.add-book')
+const bookBtn = document.querySelector('.add-book');
 
-function addBookToLibrary(author, title, num_pages, read) {
-  let newBook = new Book(author, title, num_pages, read)
-  myLibrary.push(newBook)
-  displayBooks()
+function addBookToLibrary(author, title, numPages, read) {
+  const newBook = new Book(author, title, numPages, read);
+  myLibrary.push(newBook);
+  displayBooks();
 }
 
-bookBtn.addEventListener('click', function (e) {
-  e.preventDefault()
-  const bookAuthor = document.querySelector('.form-author').value
-  const bookTitle = document.querySelector('.form-title').value
-  const bookPages = document.querySelector('.form-num-pages').value
-  const bookRead = document.querySelector('.form-read').checked
-  console.log(bookRead)
+bookBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const bookAuthor = document.querySelector('.form-author').value;
+  const bookTitle = document.querySelector('.form-title').value;
+  const bookPages = document.querySelector('.form-num-pages').value;
+  const bookRead = document.querySelector('.form-read').checked;
   // add read here
-  addBookToLibrary(bookAuthor, bookTitle, bookPages, bookRead)
-  console.log('added book')
-  console.log(myLibrary)
-})
+  addBookToLibrary(bookAuthor, bookTitle, bookPages, bookRead);
+});
 
 
-const books = document.querySelector('.books')
+const books = document.querySelector('.books');
 
 function displayBooks() {
   // loops through array and displays books
-  books.textContent = ''
+  books.textContent = '';
   for (let i = 0; i < myLibrary.length; i++) {
-    let listItem = document.createElement('li')
+    const listItem = document.createElement('li');
 
-    let div = document.createElement('div')
+    const div = document.createElement('div');
 
-    let title = document.createElement('h2')
-    title.textContent = 'Book Title: ' + myLibrary[i].title
-    div.appendChild(title)
+    const title = document.createElement('h2');
+    title.textContent = `Book Title: ${myLibrary[i].title}`;
+    div.appendChild(title);
 
-    let author = document.createElement('h3')
-    author.textContent = 'Book Author: ' + myLibrary[i].author
-    div.appendChild(author)
+    const author = document.createElement('h3');
+    author.textContent = `Book Author: ${myLibrary[i].author}`;
+    div.appendChild(author);
 
-    let pages = document.createElement('p')
-    pages.textContent = 'No. Pages: ' + myLibrary[i].num_pages
-    div.appendChild(pages)
+    const pages = document.createElement('p');
+    pages.textContent = `No. Pages: ${myLibrary[i].numPages}`;
+    div.appendChild(pages);
 
-    let read = document.createElement('button')
-    read.setAttribute('class', 'status-btn')
+    const read = document.createElement('button');
+    read.setAttribute('class', 'status-btn');
 
-    let readStatus = myLibrary[i].read ? 'read' : 'unread'
-    read.textContent = readStatus
+    const readStatus = myLibrary[i].read ? 'read' : 'unread';
+    read.textContent = readStatus;
 
     read.onclick = function (e) {
-      let index = this.parentNode.parentNode.getAttribute('book-index')
+      const index = this.parentNode.parentNode.getAttribute('book-index');
 
       if (read.textContent === 'unread') {
-        read.textContent = 'read'
-        myLibrary[index].read = true
+        read.textContent = 'read';
+        myLibrary[index].read = true;
       } else {
-        read.textContent = 'unread'
-        myLibrary[index].read = false
+        read.textContent = 'unread';
+        myLibrary[index].read = false;
       }
-      console.log(myLibrary)
-    }
+    };
 
-    div.appendChild(read)
+    div.appendChild(read);
 
-    listItem.setAttribute('book-index', i)
+    listItem.setAttribute('book-index', i);
 
-    let deleteBtn = document.createElement('button')
-    deleteBtn.setAttribute('class', 'delete-btn')
-    deleteBtn.textContent = 'Delete Book'
+    const deleteBtn = document.createElement('button');
+    deleteBtn.setAttribute('class', 'delete-btn');
+    deleteBtn.textContent = 'Delete Book';
     deleteBtn.onclick = function (e) {
-      e.preventDefault()
-      let idx = deleteBtn.parentNode.parentNode.getAttribute('book-index')
-      myLibrary.splice(idx, 1)
-      console.log('item deleted')
-      displayBooks()
-    }
-    div.appendChild(deleteBtn)
+      e.preventDefault();
+      const idx = deleteBtn.parentNode.parentNode.getAttribute('book-index');
+      myLibrary.splice(idx, 1);
+      displayBooks();
+    };
+    div.appendChild(deleteBtn);
 
 
-
-    listItem.appendChild(div)
-    books.appendChild(listItem)
+    listItem.appendChild(div);
+    books.appendChild(listItem);
   }
 }
 
 
+addBookToLibrary('Tolkien', 'LOTR', 255, false);
+addBookToLibrary('Hamil', 'Fast Book', 15, true);
 
-addBookToLibrary('Tolkien', 'LOTR', 255, false)
-addBookToLibrary('Hamil', 'Fast Book', 15, true)
-
-displayBooks()
+displayBooks();
 
 form = document.querySelector('.form');
-toggleBtn = document.querySelector('.toggle-form')
+toggleBtn = document.querySelector('.toggle-form');
 
 
 toggleBtn.addEventListener('click', (e) => {
-  form.classList.toggle('no-display')
-})
+  form.classList.toggle('no-display');
+});
