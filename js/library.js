@@ -9,23 +9,6 @@ function Book(author, title, numPages, read) {
 
 const bookBtn = document.querySelector('.add-book');
 
-function addBookToLibrary(author, title, numPages, read) {
-  const newBook = new Book(author, title, numPages, read);
-  myLibrary.push(newBook);
-  displayBooks();
-}
-
-bookBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  const bookAuthor = document.querySelector('.form-author').value;
-  const bookTitle = document.querySelector('.form-title').value;
-  const bookPages = document.querySelector('.form-num-pages').value;
-  const bookRead = document.querySelector('.form-read').checked;
-  // add read here
-  addBookToLibrary(bookAuthor, bookTitle, bookPages, bookRead);
-});
-
-
 const books = document.querySelector('.books');
 
 function displayBooks() {
@@ -54,7 +37,7 @@ function displayBooks() {
     const readStatus = myLibrary[i].read ? 'read' : 'unread';
     read.textContent = readStatus;
 
-    read.onclick = function (e) {
+    read.addEventListener('click', () => {
       const index = this.parentNode.parentNode.getAttribute('book-index');
 
       if (read.textContent === 'unread') {
@@ -64,7 +47,7 @@ function displayBooks() {
         read.textContent = 'unread';
         myLibrary[index].read = false;
       }
-    };
+    });
 
     div.appendChild(read);
 
@@ -73,12 +56,11 @@ function displayBooks() {
     const deleteBtn = document.createElement('button');
     deleteBtn.setAttribute('class', 'delete-btn');
     deleteBtn.textContent = 'Delete Book';
-    deleteBtn.onclick = function (e) {
-      e.preventDefault();
+    deleteBtn.addEventListener('click', () => {
       const idx = deleteBtn.parentNode.parentNode.getAttribute('book-index');
       myLibrary.splice(idx, 1);
       displayBooks();
-    };
+    });
     div.appendChild(deleteBtn);
 
 
@@ -87,16 +69,31 @@ function displayBooks() {
   }
 }
 
+function addBookToLibrary(author, title, numPages, read) {
+  const newBook = new Book(author, title, numPages, read);
+  myLibrary.push(newBook);
+  displayBooks();
+}
+
+bookBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  const bookAuthor = document.querySelector('.form-author').value;
+  const bookTitle = document.querySelector('.form-title').value;
+  const bookPages = document.querySelector('.form-num-pages').value;
+  const bookRead = document.querySelector('.form-read').checked;
+  // add read here
+  addBookToLibrary(bookAuthor, bookTitle, bookPages, bookRead);
+});
 
 addBookToLibrary('Tolkien', 'LOTR', 255, false);
 addBookToLibrary('Hamil', 'Fast Book', 15, true);
 
 displayBooks();
 
-form = document.querySelector('.form');
-toggleBtn = document.querySelector('.toggle-form');
+const form = document.querySelector('.form');
+const toggleBtn = document.querySelector('.toggle-form');
 
 
-toggleBtn.addEventListener('click', (e) => {
+toggleBtn.addEventListener('click', () => {
   form.classList.toggle('no-display');
 });
