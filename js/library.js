@@ -14,7 +14,7 @@ const books = document.querySelector('.books');
 function displayBooks() {
   // loops through array and displays books
   books.textContent = '';
-  for (let i = 0; i < myLibrary.length; i++) {
+  for (let i = 0; i < myLibrary.length; i += 1) {
     const listItem = document.createElement('li');
 
     const div = document.createElement('div');
