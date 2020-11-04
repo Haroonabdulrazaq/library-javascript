@@ -37,7 +37,8 @@ function displayBooks() {
     const readStatus = myLibrary[i].read ? 'read' : 'unread';
     read.textContent = readStatus;
 
-    read.addEventListener('click', () => {
+
+    read.onclick = function () {
       const index = this.parentNode.parentNode.getAttribute('book-index');
 
       if (read.textContent === 'unread') {
@@ -47,7 +48,7 @@ function displayBooks() {
         read.textContent = 'unread';
         myLibrary[index].read = false;
       }
-    });
+    };
 
     div.appendChild(read);
 
