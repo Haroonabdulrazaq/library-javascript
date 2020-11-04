@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Javascript Library</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <br>
+    <br>
+    <h2>JS Library</h2>
+    <!-- toggle display add book form -->
+    <button class="toggle-form">Show/Hide Book Form</button>
+    <br>
+    <br>
+    <!-- Add Book Form -->
+    <form action="#" class="form no-display">
+      <label for="author">Author</label>
+      <input type="text" name="author" class='form-author' autofocus>
+      <label for="title">Title</label>
+      <input type="text" name="title" class='form-title'>
+      <label for="num_pages">Pages</label>
+      <input type="text" name="num_pages" class='form-num-pages'>
+      <label for="read"> Read</label>
+      <input type="checkbox" class="form-read" name='read'>
+      <input type="submit" value="Add Book" class='add-book'>
+    </form>
+    <br>
+    <br>
+    <!-- placeholder for book list -->
+    <h4>Books</h4>
+    <ul class='books'>
+
+    </ul>
+  </div>
+  <script src='js/library.js'></script>
+</body>
+
+</html>
