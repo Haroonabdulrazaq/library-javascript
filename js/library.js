@@ -8,7 +8,7 @@ function Book(author, title, numPages, read) {
 }
 
 const bookBtn = document.querySelector('.add-book');
-
+const form = document.querySelector('.form');
 const books = document.querySelector('.books');
 
 function displayBooks() {
@@ -85,6 +85,7 @@ bookBtn.addEventListener('click', (e) => {
     alert('Form inputs should not be empty');
   } else {
     addBookToLibrary(bookAuthor, bookTitle, bookPages, bookRead);
+    form.reset();
   }
 });
 
@@ -93,7 +94,6 @@ addBookToLibrary('Hamil', 'Fast Book', 15, true);
 
 //  displayBooks();
 
-const form = document.querySelector('.form');
 const toggleBtn = document.querySelector('.toggle-form');
 
 
