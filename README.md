@@ -1,57 +1,48 @@
-# Project Name
+# JS Book Library
 
-> One paragraph statement about the project.
+> A simple library app built to practice Javascript
 
-![screenshot](./app_screenshot.png)
+![screenshot](./screenshot.png)
 
-Additional description about the project and its features.
+- Users can click a button to show/hide the form to add a new book
+- The application displays all the books that have been added to the library
+- Users can delete books
 
 ## Built With
 
-- Major languages,
-- frameworks,
-- technologies used
-
-## Live Demo
-
-[Live Demo Link](https://livedemo.com)
+- HTML
+- Javascript
+- Sass
+- [Bulma.io](https://bulma.io)
 
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
 To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
 
 ### Setup
 
-### Install
-
-### Usage
-
-### Run tests
-
-### Deployment
-
+1.  Clone this repository with
+    `git clone https://github.com/m15e/library-javascript.git` using your terminal or command line.
+2.  Change to the project directory by entering `cd library-javascript` in the terminal
+3.  Next open the folder with an IDE like VSCode.
+4.  Install the LiveServer Extension on VSCode.
+5.  Once installed hit the "Go Live" button on the bottom right hand of your editor.
+6.  The application should automatically open in a browser window.
 
 
 ## Authors
 
-👤 **Author1**
+👤 **Haroon Abdulrazaq**
 
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+- Github: [@haroonabdulrazaq](https://github.com/githubhandle)
+- Twitter: [@Hanq_o](https://twitter.com/twitterhandle)
+- Linkedin: [Haroonabdulrazaq](https://www.linkedin.com/in/haroonabdulrazaq)
 
-👤 **Author2**
+👤 **Mark Rode**
 
-- Github: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- Linkedin: [linkedin](https://linkedin.com/linkedinhandle)
+- Github: [@m15e](https://github.com/m15e)
+
 
 ## 🤝 Contributing
 
@@ -65,9 +56,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Microverse
+- The Odin Project
 
 ## 📝 License
 
