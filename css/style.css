@@ -4,6 +4,7 @@
 
 .books li {
   margin-right: 2em;
+  width: 20%;
 }
 
 .books li button {

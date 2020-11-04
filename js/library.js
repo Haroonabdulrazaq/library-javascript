@@ -39,14 +39,12 @@ function displayBooks() {
 
 
     read.onclick = function () {
-      const index = this.parentNode.parentNode.getAttribute('book-index');
-
       if (read.textContent === 'unread') {
         read.textContent = 'read';
-        myLibrary[index].read = true;
+        myLibrary[i].read = true;
       } else {
         read.textContent = 'unread';
-        myLibrary[index].read = false;
+        myLibrary[i].read = false;
       }
     };
 
@@ -83,13 +81,17 @@ bookBtn.addEventListener('click', (e) => {
   const bookPages = document.querySelector('.form-num-pages').value;
   const bookRead = document.querySelector('.form-read').checked;
   // add read here
-  addBookToLibrary(bookAuthor, bookTitle, bookPages, bookRead);
+  if (bookAuthor === '' || bookTitle === '' || bookPages === '') {
+    alert('Form inputs should not be empty');
+  } else {
+    addBookToLibrary(bookAuthor, bookTitle, bookPages, bookRead);
+  }
 });
 
 addBookToLibrary('Tolkien', 'LOTR', 255, false);
 addBookToLibrary('Hamil', 'Fast Book', 15, true);
 
-displayBooks();
+//  displayBooks();
 
 const form = document.querySelector('.form');
 const toggleBtn = document.querySelector('.toggle-form');
