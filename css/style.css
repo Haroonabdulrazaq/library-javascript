@@ -4,6 +4,15 @@
   display: flex;
 }
 
+.books li {
+  margin-right: 2em;
+}
+
+.books li button {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
 .no-display {
   display: none;
 }

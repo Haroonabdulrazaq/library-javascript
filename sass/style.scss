@@ -1,5 +1,13 @@
 .books {
   display: flex;
+  li {
+    margin-right: 2em;
+
+    button {
+      margin-top: 10px;
+      margin-right: 10px;
+    }
+  }
 }
 
 .no-display {

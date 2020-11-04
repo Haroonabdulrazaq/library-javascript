@@ -58,11 +58,16 @@ function displayBooks() {
     read.textContent = readStatus
 
     read.onclick = function (e) {
+      let index = this.parentNode.parentNode.getAttribute('book-index')
+
       if (read.textContent === 'unread') {
         read.textContent = 'read'
+        myLibrary[index].read = true
       } else {
         read.textContent = 'unread'
+        myLibrary[index].read = false
       }
+      console.log(myLibrary)
     }
 
     div.appendChild(read)
