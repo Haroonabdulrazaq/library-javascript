@@ -53,16 +53,18 @@ function displayBooks() {
 
     let read = document.createElement('button')
     read.setAttribute('class', 'status-btn')
+
     let readStatus = myLibrary[i].read ? 'read' : 'unread'
     read.textContent = readStatus
 
-    read.addEventListener ('click', (e)=>{
-      if (readStatus == 'read'){
-        read.textContent = 'unread'
-      }else {
+    read.onclick = function (e) {
+      if (read.textContent === 'unread') {
         read.textContent = 'read'
+      } else {
+        read.textContent = 'unread'
       }
-    })
+    }
+
     div.appendChild(read)
 
     listItem.setAttribute('book-index', i)
