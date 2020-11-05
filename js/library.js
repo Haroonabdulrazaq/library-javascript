@@ -84,7 +84,6 @@ const myModule =(()=> {
 
 })();
 
-// myModule.addBookToLibrary(author,title,numPages,read)
 
 const bookBtn = document.querySelector('.add-book');
 const form = document.querySelector('.form');
