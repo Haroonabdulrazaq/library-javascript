@@ -2,8 +2,7 @@ const myLibrary = [];
 
 const books = document.querySelector('.books');
 
-const myModule =(()=> {
-
+const bookModule = (() => {
   function Book(author, title, numPages, read) {
     this.author = author;
     this.title = title;
@@ -12,35 +11,34 @@ const myModule =(()=> {
   }
 
 
-  //Display Books 
+  // Display Books
   function displayBooks() {
     // loops through array and displays books
     books.textContent = '';
     for (let i = 0; i < myLibrary.length; i += 1) {
-  
       const listItem = document.createElement('li');
-  
+
       const div = document.createElement('div');
-  
+
       const title = document.createElement('h2');
       title.textContent = `Book Title: ${myLibrary[i].title}`;
       div.appendChild(title);
-  
+
       const author = document.createElement('h3');
       author.textContent = `Book Author: ${myLibrary[i].author}`;
       div.appendChild(author);
-  
+
       const pages = document.createElement('p');
       pages.textContent = `No. Pages: ${myLibrary[i].numPages}`;
       div.appendChild(pages);
-  
+
       const read = document.createElement('button');
       read.setAttribute('class', 'status-btn');
-  
+
       const readStatus = myLibrary[i].read ? 'read' : 'unread';
       read.textContent = readStatus;
-  
-  
+
+
       read.onclick = function () {
         if (read.textContent === 'unread') {
           read.textContent = 'read';
@@ -50,11 +48,11 @@ const myModule =(()=> {
           myLibrary[i].read = false;
         }
       };
-  
+
       div.appendChild(read);
-  
+
       listItem.setAttribute('book-index', i);
-  
+
       const deleteBtn = document.createElement('button');
       deleteBtn.setAttribute('class', 'delete-btn');
       deleteBtn.textContent = 'Delete Book';
@@ -64,14 +62,14 @@ const myModule =(()=> {
         displayBooks();
       });
       div.appendChild(deleteBtn);
-  
-  
+
+
       listItem.appendChild(div);
       books.appendChild(listItem);
     }
   }
 
-    // Add books to Library
+  // Add books to Library
   function addBookToLibrary(author, title, numPages, read) {
     const newBook = new Book(author, title, numPages, read);
     myLibrary.push(newBook);
@@ -79,9 +77,8 @@ const myModule =(()=> {
   }
 
   return {
-    addBookToLibrary
-  }
-
+    addBookToLibrary,
+  };
 })();
 
 
@@ -99,13 +96,13 @@ bookBtn.addEventListener('click', (e) => {
   if (bookAuthor === '' || bookTitle === '' || bookPages === '') {
     alert('Form inputs should not be empty');
   } else {
-    myModule.addBookToLibrary(bookAuthor, bookTitle, bookPages, bookRead);
+    bookModule.addBookToLibrary(bookAuthor, bookTitle, bookPages, bookRead);
     form.reset();
   }
 });
 
-myModule.addBookToLibrary('Tolkien', 'LOTR', 255, false);
-myModule.addBookToLibrary('Hamil', 'Fast Book', 15, true);
+bookModule.addBookToLibrary('Tolkien', 'LOTR', 255, false);
+bookModule.addBookToLibrary('Hamil', 'Fast Book', 15, true);
 
 
 const toggleBtn = document.querySelector('.toggle-form');
